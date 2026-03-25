@@ -1,3 +1,4 @@
+const cors = require("cors");
 const express = require("express");
 const http = require("http");
 const { connectDb, disconnectDb } = require("./config/db");
@@ -9,9 +10,27 @@ const tasksRoutes = require("./routes/tasksRoutes");
 const app = express();
 const httpServer = http.createServer(app);
 const PORT = process.env.PORT || 3000;
+const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:5500,http://127.0.0.1:5500")
+    .split(",")
+    .map(origin => origin.trim())
+    .filter(Boolean);
 let server = null;
 let isShuttingDown = false;
 
+app.use(
+    cors({
+        origin(origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+                return;
+            }
+
+            callback(new Error("Origin not allowed by CORS."));
+        },
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"]
+    })
+);
 app.use(express.json());
 
 app.use("/auth", authRoutes);

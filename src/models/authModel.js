@@ -4,7 +4,7 @@ async function findUserByEmail(email) {
     const sql = `
         SELECT id, email, username, google_id, password_hash, role, created_at, updated_at
         FROM users
-        WHERE email = $1
+        WHERE LOWER(email) = LOWER($1)
         LIMIT 1
     `;
 
@@ -16,7 +16,7 @@ async function findUserByUsername(username) {
     const sql = `
         SELECT id, email, username, google_id, password_hash, role, created_at, updated_at
         FROM users
-        WHERE username = $1
+        WHERE LOWER(username) = LOWER($1)
         LIMIT 1
     `;
 
@@ -28,7 +28,7 @@ async function findUserByEmailOrUsername(identifier) {
     const sql = `
         SELECT id, email, username, google_id, password_hash, role, created_at, updated_at
         FROM users
-        WHERE email = $1 OR username = $1
+        WHERE LOWER(email) = LOWER($1) OR LOWER(username) = LOWER($1)
         LIMIT 1
     `;
 
