@@ -10,7 +10,7 @@ const tasksRoutes = require("./routes/tasksRoutes");
 const app = express();
 const httpServer = http.createServer(app);
 const PORT = process.env.PORT || 3000;
-const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:5500,http://127.0.0.1:5500")
+const allowedOrigins = (process.env.CORS_ORIGINS)
     .split(",")
     .map(origin => origin.trim())
     .filter(Boolean);
