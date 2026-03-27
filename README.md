@@ -1,6 +1,6 @@
 # Kanban J4M Backend
 
-This repository contains an Express + PostgreSQL backend for a Kanban app, plus a separate static frontend in `KanbanBoard-J4M/`.
+This repository contains an Express + PostgreSQL backend for [KanbanBoard-J4M](https://github.com/secretiv3plotter/KanbanBoard-J4M).
 
 ## Tech Stack
 
