@@ -1,11 +1,11 @@
 const cors = require("cors");
 const express = require("express");
 const http = require("http");
-const { connectDb, disconnectDb } = require("./config/db");
-const { startTaskCleanupJob, stopTaskCleanupJob } = require("./jobs/taskCleanupJob");
-const { closeWebSocketServer, initWebSocketServer } = require("./realtime/socketServer");
-const authRoutes = require("./routes/authRoutes");
-const tasksRoutes = require("./routes/tasksRoutes");
+const { connectDb, disconnectDb } = require("./system/config/db");
+const { startTaskCleanupJob, stopTaskCleanupJob } = require("./system/jobs/taskCleanupJob");
+const { closeWebSocketServer, initWebSocketServer } = require("./transport/websocket/socketServer");
+const authRoutes = require("./transport/api/routes/authRoutes");
+const tasksRoutes = require("./transport/api/routes/tasksRoutes");
 
 const app = express();
 const httpServer = http.createServer(app);

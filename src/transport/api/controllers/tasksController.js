@@ -3,8 +3,8 @@ const {
     getActiveTasksByUserId,
     softDeleteTask,
     updateTask: updateTaskRecord
-} = require("../models/tasksModel");
-const { broadcastTasksUpdate } = require("../realtime/socketServer");
+} = require("../../../data/models/tasksModel");
+const { broadcastTasksUpdate } = require("../../websocket/socketServer");
 
 const VALID_STATUSES = new Set(["todo", "doing", "done"]);
 

@@ -1,5 +1,5 @@
 const cron = require("node-cron");
-const { purgeSoftDeletedTasksOlderThanDays } = require("../models/tasksModel");
+const { purgeSoftDeletedTasksOlderThanDays } = require("../../data/models/tasksModel");
 
 let cleanupTask = null;
 

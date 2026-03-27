@@ -1,4 +1,4 @@
-const { query } = require("../config/db");
+const { query } = require("../../system/config/db");
 
 async function findUserByEmail(email) {
     const sql = `

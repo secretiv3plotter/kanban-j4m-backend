@@ -8,7 +8,7 @@ const {
     findUserByGoogleId,
     findUserByUsername,
     linkGoogleAccount
-} = require("../models/authModel");
+} = require("../../../data/models/authModel");
 
 const SALT_ROUNDS = 10;
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
